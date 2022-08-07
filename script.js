@@ -24,3 +24,9 @@ if ('geolocation' in navigator) {
 } else {
     alert('geolocatie is niet ondersteund door jouw browser');
 }
+
+if ('compass' in navigator) {
+    document.querySelector('h2').textContent = 'ja';
+} else {
+    document.querySelector('h2').textContent = 'nee';
+}
