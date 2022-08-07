@@ -7,8 +7,9 @@ function success(position) {
     const heading = position.coords.heading;
     const speed = position.coords.speed;
     const timestamp = position.timestamp;
-    document.querySelector('h1').innerHTML = latitude + '<br>' + longitude + '<br>' + accuracy + '<br>'
-    + altitude + '<br>' + altitudeAccuracy + '<br>' + heading + '<br>' + speed + '<br>' + timestamp;
+    document.querySelector('h1').innerHTML = 'latitude: ' + latitude + '<br>longitude: ' + longitude
+    + '<br>accuracy: ' + accuracy + '<br>altitude: ' + altitude + '<br>altitudeAccuracy: ' + altitudeAccuracy
+    + '<br>heading: ' + heading + '<br>speed: ' + speed + '<br>timestamp: ' + timestamp;
 }
 
 function error() {
@@ -20,13 +21,7 @@ const options = {
 };
 
 if ('geolocation' in navigator) {
-    navigator.geolocation.watchPosition(success, error, options);
+    navigator.geolocation.getCurrentPosition(success, error, options);
 } else {
     alert('geolocatie is niet ondersteund door jouw browser');
-}
-
-if ('compass' in navigator) {
-    alert('ja');
-} else {
-    alert('nee');
 }
