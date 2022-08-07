@@ -20,7 +20,7 @@ const options = {
 };
 
 if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(success, error, options);
+    navigator.geolocation.watchPosition(success, error, options);
 } else {
     alert('geolocatie is niet ondersteund door jouw browser');
 }
